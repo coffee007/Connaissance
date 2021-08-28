@@ -1,0 +1,128 @@
+<html>
+<head>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+
+
+  <!-- SIDEBAR -->
+
+  <div id="mySidebar" class="sidebar">
+    <a href="javascript:void(0)" id="closebtn" class="closebtn">&times;</a>
+    <a href="#" id="home">Home</a>
+    <a href="#" id="builder" style="display:none;">Shortcuts</a>
+    <!-- <a href="#" id="reminders">To Do</a>
+-->
+    <a href="#" id="readlater">Read Later</a>
+    <a href="#" id="watchlater">Watch Later</a>
+    <a href="#" id="settings">Data and Settings</a>
+
+  </div>
+
+
+  <div id="main" class="section">
+    <button id="openbtn" class="openbtn">&#9776; Menu</button>
+
+  <div id="homediv" class="section">
+    <h1>Today View</h1>
+    <h2 id="currentWebsiteAction"> Actions related to the website you are on will appear here </h2>
+    <div class="tooltip"><span class="tooltiptext">Adds current tab page to read later list</span> <button id="addToReadLater" class="btn">Add current page to Read Later</button></div><br><br>
+  <div class="tooltip"><span class="tooltiptext">If you're on a YouTube.com page, this will add the YouTube link along with the timestamp to Watch Later</span>   <button id="addToWatchLater" class="btn">Add playing YouTube video to Watch Later</button></div>
+</div>
+
+  <!-- BUILDER -->
+  <!-- <div id="builderdiv" class="section" style="display:none;">
+    <h2> Builder (beta)</h2>
+    <p> This feature will be available in the next update </p>
+
+  </div> -->
+
+  <!-- REMINDERS -->
+  <!-- <div id="reminderdiv" class="section"  style="display:none;">
+    <h2>To Do List</h2>
+    <div id="myDIV" class="header">
+  <input type="text" id="myInput" placeholder="Name of the task" class="addNew">
+  <span class="addBtn" id="addTaskBtn">Add</span>
+</div> -->
+
+<ul id="myUL">
+</ul>
+  </div>
+
+  <div class="shade"></div>
+
+  <!-- SCREEN TIME -->
+  <div id="settingsdiv" class="section"  style="display:none;">
+    <h2>Data and Settings</h2>
+    <div id="dangerDiv"><br><br>
+      <h2>Danger Zone</h2>
+      <h3><input type="checkbox" id="clearcheck">&nbsp;&nbsp;&nbsp;Check this box to confirm you want to clear all data, and then click the button below.</h3>
+      <button id="clearbookmarks" class="btn">Clear all data</button>
+      <br>
+      <h3 id="cleared"></h3><br>
+    </div>
+  </div>
+
+  <!-- READ LATER -->
+
+  <div id="readlaterdiv" class="section" style="display:none;">
+    <center>
+    <h2> Your reading list </h2>
+    <br><button id="addToReadLater2" class="btn">Add the active website to the Read Later list</button>
+    <br></center>
+    <h3 id="readlist">
+    </h3>
+    <center>
+      <br>
+    <button id="delreadbtn" class="btn">Delete all selected (checked) bookmarks</button></center>
+    <br><br><center>
+    <h3> Add bookmark manually </h3>
+    <p style='color: red;' id="error2"></p>
+    <p>Enter the name of this bookmark</p>
+    <input type="text" class="addNew" id="readbookmarkname" placeholder="Name of the bookmark">
+    <p>Enter the link to the page</p>
+    <input type="text" class="addNew" id="readbookmarklink" placeholder="Link to the page"><br><br>
+    <input id="manualsubmit" type="button" class="btn" value="Add"><br><br>
+  </div>
+</center>
+  </div>
+
+  <!-- WATCH LATER -->
+  <div id="watchlaterdiv" class="section" style="display:none;">
+
+  <center>
+    <h2 id="title">YouTube Bookmarks</h2>
+    <div id="addDiv">
+      <br>
+    <p style='color: red;' id="ytpageerror"></p>
+    <div id="viewDiv">
+    <h2>View your bookmarks</h2>
+    <button id="getbookmark" class="btn">View bookmarks</button>
+    <button id="hidebookmark" class="btn" style="display:none;">Hide bookmarks</button>
+    <h3 id="bookmarks"></h3>
+  </div><br>
+    <button id="delbookmark" class="btn">Delete the selected (checked) bookmarks</button><br><br>
+
+    <br>
+    <h2>Add a bookmark</h2>
+    <p style='color: red;' id="error"></p>
+    <p>Enter the name of this bookmark</p>
+    <input type="text" class="addNew" id="bookmarkname" placeholder="Eg. How to bake a cake">
+    <p>Enter the link to the video</p>
+    <input type="text" class="addNew" id="bookmarklink" placeholder="Link to the video">
+    <p>Enter timestamp (hh:mm:ss format)</p>
+    <input type="text" class="addNew" id="timestamp" placeholder="Eg. 00:09:53"><br><br>
+    <button id="addbookmark" class="btn">Add bookmark</button><br><br>
+    </div>
+    <br><br>
+
+    <div id="deleteDiv">
+  </div>
+    </center>
+</div>
+</div>
+  <script src="popup.js"></script>
+
+</body>
+</html>

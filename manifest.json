@@ -1,0 +1,18 @@
+{
+  "name": "YouTube Timestamp Manager",
+  "version": "1.0",
+  "description": "Keep track of where you were in YouTube videos, with this easy-to-use Chrome Extension!",
+  "permissions": ["activeTab", "storage", "tabs", "alarms", "contextMenus"],
+  "browser_action": {
+    "default_popup": "popup.html"
+  },
+  "icons": {
+  "512": "icon.png"
+},
+  "background": {
+  	"scripts": ["background.js"]
+  },
+  "options_page": "options.html",
+  "web_accessible_resources": ["script.js"],
+  "manifest_version": 2
+}

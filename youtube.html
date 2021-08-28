@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link href='https://fonts.googleapis.com/css?family=Abel' rel='stylesheet'>
+  </head>
+  <body><center>
+    <h2 id="title">YouTube Bookmarks</h2>
+    <div id="addDiv">
+      <br>
+    <h2>YouTube page</h2>
+    <p style='color: red;' id="ytpageerror"></p>
+    <p>You can click the below button to automatically add a bookmark when you are on a YouTube video page</p>
+    <button id="autobookmark" class="btn">Auto-add Bookmark</button><br><br>
+    <h2>Add a bookmark</h2>
+    <p style='color: red;' id="error"></p>
+    <p>Enter the name of this bookmark</p>
+    <input type="text" class="addNew" id="bookmarkname" placeholder="Eg. How to bake a cake">
+    <p>Enter the link to the video</p>
+    <input type="text" class="addNew" id="bookmarklink" placeholder="Link to the video">
+    <p>Enter timestamp (hh:mm:ss format)</p>
+    <input type="text" class="addNew" id="timestamp" placeholder="Eg. 00:14:52"><br><br>
+    <button id="addbookmark" class="btn">Add bookmark</button><br><br>
+    </div>
+    <br><br>
+    <div id="viewDiv"><br>
+    <h2>View your bookmarks</h2>
+    <button id="getbookmark" class="btn">View bookmarks</button>
+    <button id="hidebookmark" class="btn" style="display:none;">Hide bookmarks</button>
+    <h3 id="bookmarks"></h3><br>
+    </div>
+    <br><br>
+
+    <div id="deleteDiv"><br>
+    <h2>Delete a bookmark</h2>
+    <input type="text" id='toDelete' class="addNew" placeholder="Item to delete"><br><br>
+    <button id="delbookmark" class="btn">Delete this bookmark</button><br><br>
+    <label id="deleted"></label><br><br><button id="close" class="resume" style="display: none;">&nbsp; Thanks &nbsp;</button>
+    <br>
+  </div>
+    <br><br>
+
+    <div id="dangerDiv">
+      <br>
+    <h2>Danger Zone</h2>
+    <h3><input type="checkbox" id="clearcheck">&nbsp;&nbsp;&nbsp;Check this box to confirm you want to clear all data, and then click the button below.</h3>
+    <button id="clearbookmarks" class="btn">Clear all data</button>
+    <br>
+    <h3 id="cleared"></h3><br>
+  </div>
+  <br>
+    <script src="popup.js"></script>
+    </center>
+  </body>
+</html>
