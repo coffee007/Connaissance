@@ -7,7 +7,10 @@
     "default_popup": "popup.html"
   },
   "icons": {
-  "16": "icon.png"
+  "16": "icon.png",
+  "32": "icon (1).png",
+  "64": "icon (2).png",
+  "128": "icon (3).png"
 },
   "background": {
   	"scripts": ["background.js"]
