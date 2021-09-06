@@ -7,12 +7,12 @@
     "default_popup": "popup.html"
   },
   "icons": {
-  "512": "icon.png"
+  "16": "icon.png"
 },
   "background": {
   	"scripts": ["background.js"]
   },
   "options_page": "options.html",
-  "web_accessible_resources": ["script.js"],
+  "web_accessible_resources": ["content.js"],
   "manifest_version": 2
 }

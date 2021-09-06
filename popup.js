@@ -114,6 +114,7 @@ document.getElementById("openbtn").addEventListener("click", openNav);
 document.getElementById("closebtn").addEventListener("click", closeNav);
 document.getElementById("addToReadLater").addEventListener("click", addToReadLater);
 document.getElementById("addToReadLater2").addEventListener("click", addToReadLater);
+document.getElementById("addToWatchLater").addEventListener("click", addToWatchLater);
 document.getElementById("delreadbtn").addEventListener("click", delReadLater);
 document.getElementById("manualsubmit").addEventListener("click", addToReadManually);
 
@@ -195,7 +196,19 @@ document.getElementById("settings").addEventListener("click", showsettingsdiv);
 function addBookmark() {
   var link = document.getElementById('bookmarklink').value;
 
-  var time = document.getElementById('timestamp').value;
+  var time = document.getElementById('timestamp').value.toString();
+
+  if (!time) {
+      time = "1";
+  }
+  var timetest = time.split(":");
+  if (timetest.length < 3){
+    document.getElementById('error').innerHTML = "Please enter three values for hours, minutes and seconds in the proper format (Eg. 00:10:32)";
+    return;
+  }
+
+  var a = time.split(":");
+  var time = (+a[0]) * 60 * 60 + (+a[1]) * 60 + (+a[2]);
 
   var name = document.getElementById('bookmarkname').value;
 
@@ -208,14 +221,6 @@ function addBookmark() {
       return;
   }
 
-  if (!time) {
-      time = "00:00:01";
-  }
-  var timetest = time.split(":");
-  if (timetest.length < 3){
-    document.getElementById('error').innerHTML = "Please enter three values for hours, minutes and seconds in the proper format (Eg. 00:10:32)";
-    return;
-  }
   chrome.storage.sync.set({[name]: {"link": [link], "time": [time]}}, function() {});
 
   document.getElementById('error').innerHTML = "";
@@ -232,7 +237,6 @@ function addBookmark() {
 }
 
 function autoBookmark() {
-  console.log("KEKW");
   chrome.tabs.query({ active: true, currentWindow: true }, function (tab) {
     var name = tab.title;
     var link = tab.url;
@@ -250,9 +254,8 @@ function getBookmark() {
     if (Object.size(items[key]) == 2) {
     var timeVal = items[key]['time'].toString();
     var newLink = items[key]['link'].toString();
-    var a = timeVal.split(":");
-    var seconds = (+a[0]) * 60 * 60 + (+a[1]) * 60 + (+a[2]);
-    var strToAdd = "<br><br> <input type='checkbox' class='bookmarkdel' name='ytbookmarks' value='" + key + " - " + timeVal + "'>&nbsp;&nbsp;&nbsp;" + key + " - " + timeVal + "  <a class='resume' href='" + newLink + "&t=" + seconds + "' target='_blank'>Resume</a>";
+    var seconds = timeVal;
+    var strToAdd = "<br><br> <input type='checkbox' class='bookmarkdel' name='ytbookmarks' value='" + key + "'>&nbsp;&nbsp;&nbsp;" + key + "&nbsp;&nbsp;  <a class='resume' href='" + newLink + "&t=" + seconds + "' target='_blank'>Resume</a>";
     document.getElementById('bookmarks').innerHTML = document.getElementById('bookmarks').innerHTML + strToAdd;
   }}
   if (document.getElementById('bookmarks').innerHTML == ""){
@@ -274,7 +277,7 @@ function delBookmark(){
   items = getCheckedBoxes("ytbookmarks");
   console.log(items);
   for (var i = 0; i < items.length; i++){
-  chrome.storage.sync.remove(items[i].split(" - ")[0], function(removed){
+  chrome.storage.sync.remove(items[i], function(removed){
     console.log(items[i]);
   });
 }
@@ -378,3 +381,7 @@ function newElement() {
   }
 }
 document.getElementById("addTaskBtn").addEventListener("click", newElement);
+
+function addToWatchLater(){
+  chrome.tabs.executeScript({file: "content.js"});
+}
