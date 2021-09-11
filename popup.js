@@ -125,7 +125,7 @@ function showMainDiv(){
   document.getElementById("watchlaterdiv").style.display = "None";
   // document.getElementById("builderdiv").style.display = "None";
   document.getElementById("settingsdiv").style.display = "None";
-  // document.getElementById("reminderdiv").style.display = "None";
+  document.getElementById("reminderdiv").style.display = "None";
   document.getElementById("mySidebar").style.width = "0";
 
 
@@ -136,7 +136,7 @@ function showReadDiv(){
   document.getElementById("watchlaterdiv").style.display = "None";
   // document.getElementById("builderdiv").style.display = "None";
   document.getElementById("settingsdiv").style.display = "None";
-  // document.getElementById("reminderdiv").style.display = "None";
+  document.getElementById("reminderdiv").style.display = "None";
   document.getElementById("mySidebar").style.width = "0";
   getReadingList();
 
@@ -147,7 +147,7 @@ function showBuilderDiv(){
   document.getElementById("homediv").style.display = "None";
   document.getElementById("readlaterdiv").style.display = "None";
   document.getElementById("settingsdiv").style.display = "None";
-  // document.getElementById("reminderdiv").style.display = "None";
+  document.getElementById("reminderdiv").style.display = "None";
   document.getElementById("mySidebar").style.width = "0";
 
 
@@ -158,13 +158,13 @@ function showsettingsdiv(){
   document.getElementById("homediv").style.display = "None";
   // document.getElementById("builderdiv").style.display = "None";
   document.getElementById("readlaterdiv").style.display = "None";
-  // document.getElementById("reminderdiv").style.display = "None";
+  document.getElementById("reminderdiv").style.display = "None";
   document.getElementById("mySidebar").style.width = "0";
 }
 
 function showReminderDiv(){
   document.getElementById("watchlaterdiv").style.display = "None";
-  // document.getElementById("reminderdiv").style.display = "";
+  document.getElementById("reminderdiv").style.display = "";
   document.getElementById("homediv").style.display = "None";
   // document.getElementById("builderdiv").style.display = "None";
   document.getElementById("readlaterdiv").style.display = "None";
@@ -174,7 +174,7 @@ function showReminderDiv(){
 
 function showWatchLaterDiv(){
   document.getElementById("watchlaterdiv").style.display = "";
-  // document.getElementById("reminderdiv").style.display = "None";
+  document.getElementById("reminderdiv").style.display = "None";
   document.getElementById("homediv").style.display = "None";
   // document.getElementById("builderdiv").style.display = "None";
   document.getElementById("readlaterdiv").style.display = "None";
@@ -187,7 +187,7 @@ document.getElementById("readlater").addEventListener("click", showReadDiv);
 // document.getElementById("builder").addEventListener("click", showBuilderDiv);
 document.getElementById("watchlater").addEventListener("click", showWatchLaterDiv);
 document.getElementById("settings").addEventListener("click", showsettingsdiv);
-// document.getElementById("reminders").addEventListener("click", showReminderDiv);
+document.getElementById("reminders").addEventListener("click", showReminderDiv);
 
 
 
@@ -319,67 +319,64 @@ document.addEventListener('dataCollected', function (e) {
 
 
 
-// TO DO AND REMINDERS
-// Create a "close" button and append it to each list item
-// 
-// function getToDo(){
-//
-// }
-//
-// var myNodelist = document.getElementsByTagName("LI");
-// var i;
-// for (i = 0; i < myNodelist.length; i++) {
-//   var span = document.createElement("SPAN");
-//   var txt = document.createTextNode("\u00D7");
-//   span.className = "close";
-//   span.appendChild(txt);
-//   myNodelist[i].appendChild(span);
-// }
-//
-// // Click on a close button to hide the current list item
-// var close = document.getElementsByClassName("close");
-// var i;
-// for (i = 0; i < close.length; i++) {
-//   close[i].onclick = function() {
-//     var div = this.parentElement;
-//     div.style.display = "none";
-//   }
-// }
-//
-// // Add a "checked" symbol when clicking on a list item
-// var list = document.querySelector('ul');
-// list.addEventListener('click', function(ev) {
-//   if (ev.target.tagName === 'LI') {
-//     ev.target.classList.toggle('checked');
-//   }
-// }, false);
-//
-// // Create a new list item when clicking on the "Add" button
-// function newElement() {
-//   var li = document.createElement("li");
-//   var inputValue = document.getElementById("myInput").value;
-//   var t = document.createTextNode(inputValue);
-//   li.appendChild(t);
-//   if (inputValue === '') {
-//     alert("You must write something!");
-//   } else {
-//     document.getElementById("myUL").appendChild(li);
-//   }
-//   document.getElementById("myInput").value = "";
-//
-//   var span = document.createElement("SPAN");
-//   var txt = document.createTextNode("\u00D7");
-//   span.className = "close";
-//   span.appendChild(txt);
-//   li.appendChild(span);
-//   for (i = 0; i < close.length; i++) {
-//     close[i].addEventListener("click", function() {
-//       var div = this.parentElement;
-//       div.style.display = "none";
-//     });
-//   }
-// }
-// document.getElementById("addTaskBtn").addEventListener("click", newElement);
+function getToDo(){
+
+}
+
+var myNodelist = document.getElementsByTagName("LI");
+var i;
+for (i = 0; i < myNodelist.length; i++) {
+  var span = document.createElement("SPAN");
+  var txt = document.createTextNode("\u00D7");
+  span.className = "close";
+  span.appendChild(txt);
+  myNodelist[i].appendChild(span);
+}
+
+// Click on a close button to hide the current list item
+var close = document.getElementsByClassName("close");
+var i;
+for (i = 0; i < close.length; i++) {
+  close[i].onclick = function() {
+    var div = this.parentElement;
+    div.style.display = "none";
+  }
+}
+
+// Add a "checked" symbol when clicking on a list item
+var list = document.querySelector('ul');
+list.addEventListener('click', function(ev) {
+  if (ev.target.tagName === 'LI') {
+    ev.target.classList.toggle('checked');
+  }
+}, false);
+
+// Create a new list item when clicking on the "Add" button
+function newElement() {
+  var li = document.createElement("li");
+  var inputValue = document.getElementById("myInput").value;
+  var t = document.createTextNode(inputValue);
+  li.appendChild(t);
+  if (inputValue === '') {
+    alert("You must write something!");
+  } else {
+    document.getElementById("myUL").appendChild(li);
+  }
+  document.getElementById("myInput").value = "";
+
+  var span = document.createElement("SPAN");
+  var txt = document.createTextNode("\u00D7");
+  span.className = "close";
+  span.appendChild(txt);
+  li.appendChild(span);
+  for (i = 0; i < close.length; i++) {
+    close[i].addEventListener("click", function() {
+      var div = this.parentElement;
+      div.style.display = "none";
+    });
+  }
+}
+document.getElementById("addTaskBtn").addEventListener("click", newElement);
 
 function addToWatchLater(){
   chrome.tabs.executeScript({file: "content.js"});
